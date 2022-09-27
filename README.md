@@ -20,3 +20,7 @@
 11. visit `localhost:8088` (the username and password are `admin` and `admin` respectively) to open Apache Superset.
 12. `[Marketing] Recency, Frequency, Monetary Dashboard` dashboard should be available in `Dashboards` tab. ![](docs/img/marketing-rfm-dashboard.jpg)
 13. run `down.sh` when you're done.
+
+## Dashboard References
+
+- `[Marketing] Recency, Frequency, Monetary Dashboard` https://clevertap.com/blog/rfm-analysis/

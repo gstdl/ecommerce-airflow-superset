@@ -1,3 +1,7 @@
+## Pre-requisites
+
+- Docker https://docs.docker.com/engine/install/
+
 ## How to run the project
 
 1. run `airflow_up.sh`

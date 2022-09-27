@@ -1,8 +1,8 @@
 ## Pre-requisites
 
-- Docker https://docs.docker.com/engine/install/
+- Install Docker https://docs.docker.com/engine/install/
 
-## How to run the project
+## How to run the project (on Unix based OS)
 
 1. run `airflow_up.sh`
 2. **wait** until all docker containers are up and running
@@ -13,7 +13,7 @@
 6. visit `localhost:8080` (the username and password are `admin` and `admin` respectively) to open Airflow Webserver UI
 7. turn-on `raw_to_clean_daily_12.00_PM` and `raw_to_clean_weekly_sunday_12.00_PM` DAGs
     - If you get an error, the most likely cause is the database and schema is not defined properly. If airflow logs confirms that assumption, you can execute `seed_postgres_ecommerce.sh` and clear tasks (this should fix the issue)
-8. **wait** until `raw_to_clean_daily_12.00_PM` DAG has ran successfully 791 times (this will take some time)
+8. **wait** until `raw_to_clean_daily_12.00_PM` DAG has ran successfully 791 times (this will can take several hours)
 9. trigger `marketing_RFM_views` DAG manually
 10. run `airflow_down.sh` to stop airflow containers.
 11. run `superset_up.sh` to turn on Apache Superset container.

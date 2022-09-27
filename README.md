@@ -23,4 +23,7 @@
 
 ## Dashboard References
 
-- `[Marketing] Recency, Frequency, Monetary Dashboard` https://clevertap.com/blog/rfm-analysis/
+### [Marketing] Recency, Frequency, Monetary Dashboard 
+
+- https://clevertap.com/blog/rfm-analysis/
+- https://tresl.co/blog/rfm-analysis

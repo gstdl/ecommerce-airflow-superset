@@ -90,11 +90,11 @@ services:
     volumes:
       - ./raw_data:/raw_data
       - ./postgres_seed:/docker-entrypoint-initdb.d
-      # - ./mounted/postgres_home:/var/lib/postgresql/data
+      - ./mounted/postgres_db_home:/var/lib/postgresql/data
     networks:
       - default
     healthcheck:
-      test: ["CMD", "pg_isready", "-U", "airflow"]
+      test: ["CMD", "pg_isready", "-U", "${username}", "-d", "${ecommerce_db_name}"]
       interval: 5s
       retries: 5
     restart: always
@@ -130,6 +130,7 @@ services:
 
   airflow-scheduler:
     <<: *airflow-common
+    container_name: airflow-scheduler
     command: scheduler
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type SchedulerJob --hostname "$${HOSTNAME}"']
@@ -144,6 +145,7 @@ services:
 
   airflow-worker:
     <<: *airflow-common
+    container_name: airflow-worker
     command: celery worker
     healthcheck:
       test:
@@ -165,6 +167,7 @@ services:
 
   airflow-triggerer:
     <<: *airflow-common
+    container_name: airflow-triggerer
     command: triggerer
     healthcheck:
       test: ["CMD-SHELL", 'airflow jobs check --job-type TriggererJob --hostname "$${HOSTNAME}"']
@@ -179,6 +182,7 @@ services:
 
   airflow-init:
     <<: *airflow-common
+    container_name: airflow-init
     entrypoint: /bin/bash
     # yamllint disable rule:line-length
     command:
@@ -265,6 +269,7 @@ services:
 
   airflow-cli:
     <<: *airflow-common
+    container_name: airflow-cli
     profiles:
       - debug
     environment:
@@ -281,6 +286,7 @@ services:
   # See: https://docs.docker.com/compose/profiles/
   flower:
     <<: *airflow-common
+    container_name: flower
     command: celery flower
     profiles:
       - flower

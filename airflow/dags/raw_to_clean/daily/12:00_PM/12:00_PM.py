@@ -16,13 +16,14 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 default_args = {
-    "owner": "admin",
+    "owner": "Data Engineer - Data Warehouse",
     "depends_on_past": False,
     "email": ["airflow@company.com"],
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 1,
     "retry_delay": timedelta(minutes=5),
+    "depends_on_past": True,
 }
 
 with DAG(

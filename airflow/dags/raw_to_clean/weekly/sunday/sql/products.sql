@@ -6,7 +6,7 @@ INSERT INTO staging.dim_products
         products.product_category_name,
         en.product_category_name_english,
         products.product_name_lenght AS product_name_lenght,
-        products.product_description_lenght,
+        products.product_description_lenght AS product_description_length,
         products.product_photos_qty,
         products.product_weight_g,
         products.product_length_cm,

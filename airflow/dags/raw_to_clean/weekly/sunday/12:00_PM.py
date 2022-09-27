@@ -16,13 +16,14 @@ from airflow.providers.postgres.operators.postgres import PostgresOperator
 # These args will get passed on to each operator
 # You can override them on a per-task basis during operator initialization
 default_args = {
-    "owner": "admin",
+    "owner": "Data Engineer - Data Warehouse",
     "depends_on_past": False,
     "email": ["airflow@company.com"],
     "email_on_failure": False,
     "email_on_retry": False,
     "retries": 1,
     "retry_delay": timedelta(minutes=5),
+    "depends_on_past": True,
 }
 
 with DAG(
@@ -31,7 +32,7 @@ with DAG(
     description="weekly Sunday at 12.00 PM raw_to_clean DAG",
     schedule_interval="0 7 * * 0",
     start_date=datetime(2019, 1, 1, tzinfo=local_tz),
-    end_date=datetime(2019, 1, 8, tzinfo=local_tz),
+    end_date=datetime(2019, 1, 22, tzinfo=local_tz),
     tags=["raw to clean"],
     template_searchpath=["/opt/airflow/dags/raw_to_clean/weekly/sunday/sql"],
     catchup=True,

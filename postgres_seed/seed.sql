@@ -14,4 +14,4 @@ CREATE SCHEMA mart;
 \i /raw_data/sql/products_dataset.sql
 \i /raw_data/sql/sellers_dataset.sql
 
--- \i /raw_data/sql/foreign_key_alter.sql
+\i /raw_data/sql/foreign_key_alter.sql

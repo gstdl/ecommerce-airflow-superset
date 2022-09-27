@@ -94,7 +94,7 @@ CREATE TABLE staging.dim_products (
     product_category_name TEXT,
     product_category_name_en TEXT,
     product_name_length INT,
-    product_description_lenght INT,
+    product_description_length INT,
     product_photos_qty INT,
     product_weight_g INT,
     product_length_cm INT,
